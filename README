@@ -8,27 +8,23 @@ die: a paper template
   - Python 3.x
   - pygmentize
 
-    $ pip install Pygments 
+    $ pip install Pygments
 
 1. clone the git repo:
 
   - if you have none,
 
-    $ git clone --depth=1 git@github.com:tsgates/die.git
+    $ git clone --depth=1 git@github.com:scalesgroup/die.git
 
   - if you have a git-repo to work on,
 
-    $ git subtree add --squash git@github.com:tsgates/die.git master -P paper
-
-  - or
-
-    $ wget https://github.com/tsgates/die/releases/download/latest/die.tar.gz
+    $ git subtree add --squash git@github.com:scalesgroup/die.git master -P paper
 
 2. build it:
 
     $ make
     p.pdf built @Tue May 20 20:38:19 EDT 2014
-    
+
     (check p.pdf)
 
 3. starting point, p.tex:
@@ -72,7 +68,7 @@ die: a paper template
 
 2. abstract.txt (from abstract.tex)
 
-    $ cat abstract.txt 
+    $ cat abstract.txt
 
 3. highlight changes, since the last submit
 
