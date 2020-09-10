@@ -16,3 +16,4 @@
 - summarize dependencies for mac/windows
 - better code highlighting (+ ref support)
 - spell check on svg
+- check draftable for generating diffs (https://draftable.com/)
