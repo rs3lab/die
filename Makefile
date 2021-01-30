@@ -42,18 +42,18 @@ fig/%.pdf: fig/%.odg ## generate pdf from LibreOffice Draw
 	bin/odg2pdf.sh $^ $@
 
 data/%.tex: data/%.gp ## generate plot
-	gnuplot $^
+	OUT=$@ TARGET=paper-epslatex gnuplot $<
 
 data/%.pdf: data/%.py ## generate plot
 	python3 $^
 
 draft: $(DEPS) ## generate pdf with a draft info
 	echo -e '\\newcommand*{\\DRAFT}{}' >> rev.tex
-	@TEXINPUTS="sty:" bin/latexrun $(BTEX) $(MAIN)
+	@TEXINPUTS="sty:" bin/latexrun $(LTEX) $(BTEX) $(MAIN)
 
 watermark: $(DEPS) ## generate pdf with a watermark
 	echo -e '\\usepackage[firstpage]{draftwatermark}' >> rev.tex
-	@TEXINPUTS="sty:" bin/latexrun $(BTEX) $(MAIN)
+	@TEXINPUTS="sty:" bin/latexrun $(LTEX) $(BTEX) $(MAIN)
 
 spell: ## run a spell check
 	@for i in *.tex fig/*.tex; do bin/aspell.sh tex $$i; done
@@ -74,7 +74,9 @@ clean: ## clean up
 
 distclean: clean ## clean up completely
 	rm -f code/*.tex
+	rm -f data/*.tex
 	rm -rf _minted_p
+	rm -rf latex.out
 
 abstract.txt: abstract.tex $(MAIN).tex ## generate abstract.txt
 	@bin/mkabstract $(MAIN).tex $< | fmt -w72 > $@
