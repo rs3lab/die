@@ -17,3 +17,13 @@
 - better code highlighting (+ ref support)
 - spell check on svg
 - check draftable for generating diffs (https://draftable.com/)
+
+- Check
+show-diff-$(REV_FIXED): $(DEPS)
+	latexdiff-vc --flatten --force --type=CULINECHBAR --packages=amsmath,hyperref,siunitx \
+			  -f FLOATSAFE --exclude-safecmd="algorithm" \
+			  --math-markup=off --disable-citation-markup \
+			  --git -r $(REV_FIXED) -r $(HEAD) $(ROOT).tex
+	latexmk  -interaction=nonstopmode -jobname=$(PROPOSAL)-diff-$(REV_FIXED)-$(HEAD) -pdf $(ROOT)-diff$(REV_FIXED)-$(HEAD).tex
+	xdg-open $(PROPOSAL)-diff-$(REV_FIXED)-$(HEAD).pdf
+	latexmk  -c -jobname=$(PROPOSAL)-diff-$(REV_FIXED)-$(HEAD) $(ROOT)-diff$(REV_FIXED)-$(HEAD).tex
