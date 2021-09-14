@@ -1186,7 +1186,8 @@ class LaTeXFilter:
             # We check for >=80 because a bug in LuaTeX causes it to
             # wrap at 80 columns instead of 79 (LuaTeX #900).
             while self.__lend - self.__lstart >= 80:
-                if self.TRACE: print('<{}> wrapping'.format(self.__pos))
+                # if self.TRACE: print('<{}> wrapping'.format(self.__pos))
+                if self.TRACE: print('<{:5d}> wrapping'.format(self.__pos))
                 self.__ensure_line()
                 data = data[:-1] + self.__data[self.__pos:self.__lend]
                 self.__pos = self.__lend
@@ -1283,12 +1284,14 @@ class LaTeXFilter:
             if first:
                 self.__first_file = filename
             if self.TRACE:
-                print('<{}>{}enter {}'.format(
+                # print('<{}>{}enter {}'.format(
+                print('<{:5d}>{}enter {}'.format(
                     m.start(), ' '*len(self.__file_stack), filename))
         elif ch == ')':
             if len(self.__file_stack):
                 if self.TRACE:
-                    print('<{}>{}exit {}'.format(
+                    # print('<{}>{}exit {}'.format(
+                    print('<{:5d}>{}exit {}'.format(
                         m.start(), ' '*len(self.__file_stack),
                         self.__file_stack[-1]))
                 self.__file_stack.pop()
@@ -1298,13 +1301,32 @@ class LaTeXFilter:
         elif ch == '{':
             # TeX uses this for various things we want to ignore, like
             # file names and print_mark.  Consume up to the '}'
-            lax_checking = "strict-parse" in self.__suppress
-            epos = nested_parenthesis_end(self.__data[self.__pos-1:], '{[(', '}])',
-                                          lax_checking=lax_checking)
-            if epos == -1:
-                self.__message('warning', None,
-                               "unbalanced `{' in log; file names may be wrong")
-            self.__pos += epos + 1
+            # lax_checking = "strict-parse" in self.__suppress
+            # epos = nested_parenthesis_end(self.__data[self.__pos-1:], '{[(', '}])',
+            #                               lax_checking=lax_checking)
+            # if epos == -1:
+            #     self.__message('warning', None,
+            #                    "unbalanced `{' in log; file names may be wrong")
+            # self.__pos += epos + 1
+            contexts = 1
+            while contexts > 0:
+                end_context = self.__data.find('}', self.__pos)
+                open_context = self.__data.find('{', self.__pos)
+                if self.TRACE:
+                    print("<{:5d}> Parsing '{{' context {:d} }}: {:d} {{: {:d}"
+                          .format(self.__pos, contexts, end_context, open_context))
+                if end_context == -1:
+                    self.__message('warning', None,
+                                   "unbalanced `{' in log; file names may be wrong")
+                    contexts -= 1
+                elif open_context == -1 or  open_context > end_context:
+                    self.__pos = end_context + 1
+                    contexts -= 1
+                elif open_context < end_context:
+                    self.__pos = open_context + 1
+                    contexts += 1
+                else:
+                    raise Exception("Logic error!")
         elif ch == '}':
             self.__message('warning', None,
                            "extra `}' in log; file names may be wrong")
