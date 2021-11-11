@@ -10,7 +10,7 @@ candidates=(
     /Applications/Inkscape.app/Contents/MacOS/inkscape
 )
 
-for pn in candidates; do
+for pn in ${candidates}; do
     if [[ -e $pn ]]; then
         INKSCAPE=$pn
         break
