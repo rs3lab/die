@@ -11,6 +11,7 @@ SHELL:= $(shell echo $$SHELL)
 
 all: $(DEPS) ## generate a pdf
 	@TEXINPUTS="sty:" bin/latexrun $(LTEX) $(BTEX) $(MAIN)
+	cp latex.out/$(MAIN).synctex.gz .
 
 submit: $(DEPS) ## proposal function
 	@for f in $(wildcard submit-*.tex); do \
@@ -75,6 +76,8 @@ clean: ## clean up
 distclean: clean ## clean up completely
 	rm -f code/*.tex
 	rm -f data/*.tex
+	rm -f data/*.eps
+	rm -f data/*converted-to*
 	rm -rf _minted_p
 	rm -rf latex.out
 
