@@ -58,11 +58,6 @@
 \newif\ifnotes\notestrue
 \ifdraft\else\notesfalse\fi
 
-% hide comments
-% \renewcommand{\TK}[1]{\ignorespaces}
-% \renewcommand{\XXX}[1]{\ignorespaces}
-% \renewcommand{\TODO}[1]{\ignorespaces}
-
 %% Ensure ligatures (e.g., ``fine official flag'') can be copy/pasted from PDF.
 \input{glyphtounicode}
 \pdfgentounicode=1
@@ -102,6 +97,9 @@
 \node[draw,circle,fill=black,inner sep=0.2pt](C) {\textcolor{white}{#1}};
 \end{tikzpicture}}
 
+%%
+%% Paragraph without space with bold heading
+%%
 \usepackage{xstring}
 \newcommand{\PP}[1]{
 \vspace{2px}
@@ -113,7 +111,10 @@
 \noindent{\bf #1}
 }
 
+% stretching the table within a defined limit
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+% For yes & no
 \newcommand{\V}{\checkmark}
 \newcommand{\X}{{\footnotesize $\times$}\xspace}
 \renewcommand{\O}{\phantom{0}}
@@ -154,13 +155,13 @@
 }
 
 % ref. http://en.wikibooks.org/wiki/LaTeX/Colors
-\newcommand{\SK}[1]{\textcolor{orange}{SK: #1}}
-\newcommand{\VG}[1]{\textcolor{violet}{VG: #1}}
-\newcommand{\KK}[1]{\textcolor{green}{KK: #1}}
-\newcommand{\YK}[1]{\textcolor{blue}{YK: #1}}
-\newcommand{\DZ}[1]{\textcolor{brown}{DZ: #1}}
-\newcommand{\PJ}[1]{\textcolor{purple}{PJ: #1}}
-\newcommand{\KKD}[1]{\textcolor{red}{KKD: #1}}
+\newcommand{\SK}[1]{\noindent{\color{orange} {\bf \fbox{SK:}} #1}}
+\newcommand{\VG}[1]{\noindent{\color{violet} {\bf \fbox{VG:}} #1}}
+\newcommand{\KK}[1]{\noindent{\color{green} {\bf \fbox{KK:}} #1}}
+\newcommand{\YK}[1]{\noindent{\color{blue} {\bf \fbox{YK:}} #1}}
+\newcommand{\DZ}[1]{\noindent{\color{brown} {\bf \fbox{DZ:}} #1}}
+\newcommand{\PJ}[1]{\noindent{\color{purple} {\bf \fbox{PJ:}} #1}}
+
 \newcommand{\XX}[0]{\textcolor{red}{XXX}}
 \newcommand{\XXX}[1]{\textcolor{red}{XXX: #1}}
-\newcommand{\TODO}[1]{\textcolor{Melon}{TODO: #1}}
+\newcommand{\TODO}[1]{\noindent{\color{Melon} {\bf \fbox{TODO:}} #1}}
