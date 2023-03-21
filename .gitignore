@@ -15,11 +15,12 @@
 /rev.tex
 /abstract.txt
 /code/*.tex
-!/code/fmt.tex
-!/figs/*.pdf
-!/figs/*.eps
-!/data/*.pdf
-!/data/*.eps
+/code/fmt.tex
+/figs/*.pdf
+/figs/*.eps
+/data/*.pdf
+/data/*.eps
+data/*.tex
 .latexrun.db
 /_minted-p/
 /p.synctex.gz
