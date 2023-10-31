@@ -2,45 +2,161 @@
 %% www-git    : code url
 %% www-url    : proj webpage
 
-@string{sec-fuzzing  = "Fuzzing"}
-@string{sec-syssec   = "System Security"}
-@string{sec-cloud    = "Cloud"}
-@string{sec-fs       = "File system"}
-@string{sec-bd       = "Big Data"}
-@string{sec-network  = "Network"}
-@string{sec-sys      = "System"}
-@string{sec-conc     = "Concurrency"}
+@string{sys-fuzzing  = "Fuzzing"}
+@string{sys-syssec   = "System Security"}
+@string{sys-cloud    = "Cloud"}
+@string{sys-fs       = "File system"}
+@string{sys-bd       = "Big Data"}
+@string{sys-network  = "Network"}
+@string{sys-sys      = "System"}
+@string{sys-conc     = "Concurrency"}
+
+%% 2024
+@InProceedings{yan:nfos,
+  title         = {{Transparent Scaling of Single-Threaded Software Network Functions}},
+  author        = {Lei Yan and Yueyang Pan and Diyu Zhou and George Candea and Sanidhya Kashyap},
+  crossref      = {Eurosys24},
+  www-section   = sys-sys,
+}
+
+
+%% 2023
+@InProceedings{zhou:trio,
+  title         = {{Enabling High-Performance and Secure Userspace NVM File Systems with the Trio Architecture}},
+  author        = {Diyu Zhou and Vojtech Aschenbrenner and Tao Lyu and Jian Zhang and Sudarsun Kannan and Sanidhya Kashyap},
+  crossref      = {SOSP23},
+  www-section   = sys-sys,
+}
+
+@InProceedings{hu:skadi,
+  title         = {{Skadi: Building a Distributed Runtime for Data Systems in Disaggregated Data Centers}},
+  author        = {Cunchen Hu and Chenxi Wang and Sa Wang and Ninghui Sun and Yungang Bao and Jieru Zhao and Sanidhya Kashyap and Xiaoyang Deng and Pengfei Zuo and Rongfeng He and Xushen Chen and Liangliang Xu and Qin Zhang and Hao Feng and Yizhou Shan},
+  crossref      = {HOTOS23},
+  www-section   = sys-sys,
+}
+
+@InProceedings{gupta:tclocks,
+  title         = {{Ship your Critical Section, Not Your Data: Enabling Transparent Delegation with TCLocks}},
+  author        = {Vishal Gupta and Kumar Kartikeya Dwivedi and Yugesh Kothari and Yueyang Pan and Diyu Zhou and Sanidhya Kashyap},
+  crossref      = {OSDI23},
+  www-section   = sys-conc,
+  selected      = {true},
+  www-url	= "https://rs3lab.github.io/TCLocks/"
+}
+
+
+%% 2022
+@InProceedings{krishnan:tenet,
+  title         = {{TENET: Memory Safe and Fault tolerant Persistent Transactional Memory}},
+  author        = {R. Madhava Krishnan and Diyu Zhou and Wook-Hee Kim and Sudarsun Kannan and Sanidhya Kashyap and Changwoo Min },
+  crossref      = {FAST23},
+  www-section   = sys-sys,
+  selected      = {false},
+}
+
+@InProceedings{zhou:odinfs,
+  title         = {{Odinfs: Scaling PM performance with Opportunistic Delegation}},
+  author        = {Diyu Zhou and Yuchen Qian and Vishal Gupta and Zhifei Yang and Changwoo Min and Sanidhya Kashyap},
+  crossref      = {OSDI22},
+  www-section   = sys-sys,
+  selected      = {true},
+  www-url       = "https://rs3lab.github.io/OdinFS/"
+}
+
+@InProceedings{park:syncord,
+  title         = {{Application-Informed Kernel Synchronization Primitives}},
+  author        = {Sujin Park and Diyu Zhou and Yuchen Qian and Irina Calciu and Taesoo Kim and Sanidhya Kashyap},
+  crossref      = {OSDI22},
+  www-section   = sys-sys,
+  selected      = {true},
+  www-url       = "https://rs3lab.github.io/SynCord/"
+}
+
+%% 2021
+@InProceedings{monga:flock,
+  title         = {{Birds of a Feather Flock Together: Scaling RDMA RPCs with FLOCK}},
+  author        = {Sumit Kumar Monga and Sanidhya Kashyap and Changwoo Min},
+  crossref      = {SOSP21},
+  www-section   = sys-network,
+}
+
+@InProceedings{kim:pactree,
+  title         = {{PACTree: A High Performance Persistent Range Index Using PAC Guidelines}},
+  author        = {Wook-Hee Kim and R. Madhava Krishnan and Xinwei Fu and Sanidhya Kashyap and Changwoo Min},
+  crossref      = {SOSP21},
+  www-section   = sys-conc,
+  www-url       = "https://github.com/cosmoss-vt/pactree",
+}
+
+@InProceedings{park:c3,
+  title         = {{Contextual Concurrency Control}},
+  author        = {Sujin Park and Irina Calciu and Taesoo Kim and Sanidhya Kashyap},
+  crossref      = {HOTOS21},
+  www-section   = sys-sys,
+}
+
+@InProceedings{bhardwaj:nros,
+  title         = {{NrOs: Effective Replication and Sharing in an Operating System}},
+  author        = {Ankit Bhardwaj and Chinmay Kulkarni and Reto Achermann and Irina Calciu and Sanidhya Kashyap and Ryan Stutsman and Amy Tai and Gerd Zellweger},
+  crossref      = {OSDI21},
+  www-section   = sys-sys,
+  selected      = {true},
+  www-url       = "https://nrkernel.systems/",
+}
+
+@InProceedings{calciu:kona,
+  title         = {{Rethinking Software Runtimes for Disaggregated Memory}},
+  author        = {Irina Calciu and M. Talha Imran and Ivan Puddu and Sanidhya Kashyap and Hasan Al Maruf and Onur Mutlu and Aasheesh Kolli},
+  crossref      = {ASPLOS21},
+  www-section   = sys-sys,
+  www-url       = "https://github.com/project-kona/asplos21-ae",
+}
+
+
+@InProceedings{wickman:ffmalloc,
+  title         = {{Preventing Use-After-Free Attacks with Fast Forward Allocation}},
+  author        = {Brian Wickman and Hong Hu and Insu Yun and Daehee Jang and JungWon Lim and Sanidhya Kashyap and Taesoo Kim},
+  crossref      = {SEC21},
+  www-section   = sys-syssec,
+  www-url       = "https://github.com/bwickman97/ffmalloc"
+}
+
 
 %% 2020
 @InProceedings{xu:krace,
-  title         = {{Krace: Data Race Fuzzing for Kernel File Systems (to appear)}},
+  title         = {{Krace: Data Race Fuzzing for Kernel File Systems}},
   author        = {Meng Xu and Sanidhya Kashyap and Hanqing Zhao and Taesoo Kim},
   crossref      = {SP20},
-  www-section   = sec-fuzzing,
+  www-section   = sys-fuzzing,
+  selected      = {true},
+  www-url       = "https://github.com/sslab-gatech/krace",
 }
+
 
 %% 2019
 @InProceedings{kim:hydra,
   title         = {{Finding Semantic Bugs in File Systems with an Extensible Fuzzing Framework}},
   author        = {Seulbae Kim and Meng Xu and Sanidhya Kashyap and Jungyeon Yoon and Wen Xu and Taesoo Kim},
   crossref      = {SOSP19},
-  www-section   = sec-fuzzing,
+  www-section   = sys-fuzzing,
   www-url       = "https://github.com/sslab-gatech/hydra",
+  selected      = {true},
 }
 
 @InProceedings{kashyap:shfllock,
   title         = {{Scalable and Practical Locking With Shuffling}},
   author        = {Sanidhya Kashyap and Irina Calciu and Xiaohe Cheng and Changwoo Min and Taesoo Kim},
   crossref      = {SOSP19},
-  www-section   = sec-conc,
+  www-section   = sys-conc,
   www-url       = "https://github.com/sslab-gatech/shfllock",
+  selected      = {true},
 }
 
 @InProceedings{lee:recipe,
   title         = {{RECIPE: Converting Concurrent DRAM Indexes to Persistent-Memory Indexes}},
   author        = {Se Kwon Lee and Jayashree Mohan and Sanidhya Kashyap and Taesoo Kim and Vijay Chidambaram},
   crossref      = {SOSP19},
-  www-section   = sec-conc,
+  www-section   = sys-conc,
   www-url       = "https://github.com/utsaslab/RECIPE",
 }
 
@@ -48,15 +164,16 @@
   title         = {{SplitFS: Reducing Software Overhead in File Systems for Persistent Memory}},
   author        = {Rohan Kadekodi and Se Kwon Lee and Sanidhya Kashyap and Taesoo Kim and Aasheesh Kolli and Vijay Chidambaram},
   crossref      = {SOSP19},
-  www-section   = sec-fs,
+  www-section   = sys-fs,
   www-url       = "https://github.com/utsaslab/SplitFS",
+  selected      = {true},
 }
 
 @InProceedings{xu:janus,
   title         = {{Fuzzing File Systems via Two-Dimensional Input Space Exploration}},
   author        = {Wen Xu and Hyungon Moon and Sanidhya Kashyap and Po-Ning Tseng and Taesoo Kim},
   crossref      = {SP19},
-  www-section   = sec-fuzzing,
+  www-section   = sys-fuzzing,
   www-url       = "https://github.com/sslab-gatech/janus",
 }
 
@@ -64,16 +181,17 @@
   title         = {{MV-RLU: Scaling Read-Log-Update with Multi-Versioning}},
   author        = {Jaeho Kim and Ajit Mathew and Sanidhya Kashyap and Madhava Krishnan Ramanathan and Changwoo Min},
   crossref      = {ASPLOS19},
-  www-section   = sec-conc,
+  www-section   = sys-conc,
   www-url       = "https://github.com/cosmoss-vt/mv-rlu",
 }
+
 
 %% 2018
 @InProceedings{kashyap:ecs,
   title         = {{Scaling Guest OS Critical Sections with eCS}},
   author        = {Sanidhya Kashyap and Changwoo Min and Taesoo Kim},
   crossref      = {ATC18},
-  www-section   = sec-sys,
+  www-section   = sys-sys,
   www-url       = "https://github.com/sslab-gatech/eCS",
 }
 
@@ -81,14 +199,16 @@
   title         = {{SOLROS: A Data-Centric Operating System Architecture for Heterogeneous Computing}},
   author        = {Changwoo Min and Woon-Hak Kang and Mohan Kumar and Sanidhya Kashyap and Steffen Maass and Heeseung Jo and Taesoo Kim},
   crossref      = {EUROSYS18},
-  www-section   = sec-sys,
+  www-section   = sys-sys,
+  selected      = {true},
+  www-url       = "https://github.com/cosmoss-vt/solros",
 }
 
 @InProceedings{kashyap:ordo,
   title         = {{A Scalable Ordering Primitive For Multicore Machines}},
   author        = {Sanidhya Kashyap and Changwoo Min and Kangnyeon Kim and Taesoo Kim},
   crossref      = {EUROSYS18},
-  www-section   = sec-conc,
+  www-section   = sys-conc,
   www-url       = "https://github.com/sslab-gatech/ordo",
 }
 
@@ -96,16 +216,17 @@
   title         = {{LATR: Lazy Translation Coherence}},
   author        = {Mohan Kumar and Steffen Maass and Sanidhya Kashyap and J\'{a}n Vesel\'{y} and Zi Yan and Taesoo Kim and Abhishek Bhattacharjee and Tushar Krishna},
   crossref      = {ASPLOS18},
-  www-section   = sec-sys,
+  www-section   = sys-sys,
   www-url       = "https://github.com/sslab-gatech/latr",
 }
+
 
 %% 2017
 @InProceedings{xu:os-fuzz,
   title         = {{Designing New Operating Primitives to Improve Fuzzing Performance}},
   author        = {Wen Xu and Sanidhya Kashyap and Changwoo Min and Taesoo Kim},
   crossref      = {CCS17},
-  www-section   = sec-fuzzing,
+  www-section   = sys-fuzzing,
   www-url       = "https://github.com/sslab-gatech/perf-fuzz",
 }
 
@@ -113,7 +234,7 @@
   title       = {{Scalable NUMA-aware Blocking Synchronization Primitives}},
   author      = {Sanidhya Kashyap and Changwoo Min and Taesoo Kim},
   crossref    = {ATC17},
-  www-section = sec-conc,
+  www-section = sys-conc,
   www-url     = "https://github.com/sslab-gatech/cst-locks",
 }
 
@@ -121,40 +242,45 @@
   title       = {{Mosaic: Processing a Trillion-Edge Graph on a Single Machine}},
   author      = {Steffen Maass and Changwoo Min and Sanidhya Kashyap and Woonhak Kang and Mohan Kumar and Taesoo Kim},
   crossref    = {EUROSYS17},
-  www-section = sec-bd,
+  www-section = sys-bd,
   www-url     = "https://github.com/sslab-gatech/mosaic",
+  selected      = {true},
 }
+
 
 %% 2016
 @InProceedings{kashyap:kup,
   title         = {{Instant OS Updates via Userspace Checkpoint-and-Restart}},
   author        = {Sanidhya Kashyap and Changwoo Min and Byoungyoung Lee and Taesoo Kim and Pavel Emelyanov},
   crossref      = {ATC16},
-  www-section   = sec-sys,
+  www-section   = sys-sys,
+  selected      = {true},
 }
 
 @InProceedings{min:fxmark,
   title         = {{Understanding Manycore Scalability of File Systems}},
   author        = {Changwoo Min and Sanidhya Kashyap and Steffen Maass and Woonhak Kang and Taesoo Kim},
   crossref      = {ATC16},
-  www-section   = sec-fs,
+  www-section   = sys-fs,
   www-url       = "https://github.com/sslab-gatech/fxmark",
+  selected      = {true},
 }
 
 @InProceedings{kashyap:oppspinlocks,
   title         = {{Opportunistic Spinlocks: Achieving Virtual Machine Scalability in the Clouds}},
   author        = {Sanidhya Kashyap and Changwoo Min and Taesoo Kim},
   crossref      = {OSR16},
-  www-section   = sec-cloud,
+  www-section   = sys-conc,
   www-url       = "https://lwn.net/Articles/650776/",
 }
+
 
 %% 2015
 @InProceedings{min:juxta,
   title         = {{Cross-checking Semantic Correctness: The Case of Finding File System Bugs}},
   author        = {Changwoo Min and Sanidhya Kashyap and Byoungyoung Lee and Chengyu Song and Taesoo Kim},
   crossref      = {SOSP15},
-  www-section   = sec-fs,
+  www-section   = sys-fs,
   www-url       = "https://github.com/sslab-gatech/juxta",
 }
 
@@ -162,6 +288,6 @@
   title         = {{Scalability In The Clouds! A Myth Or Reality?}},
   author        = {Sanidhya Kashyap and Changwoo Min and Taesoo Kim},
   crossref      = {APSYS15},
-  www-section   = sec-cloud,
+  www-section   = sys-conc,
   www-url       = "https://lwn.net/Articles/650776/",
 }
