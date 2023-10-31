@@ -14,11 +14,11 @@ die: a paper template
 
   - if you have none,
 
-    $ git clone --depth=1 git@github.com:scalesgroup/die.git
+    $ git clone --depth=1 git@github.com:rs3lab/die.git
 
   - if you have a git-repo to work on,
 
-    $ git subtree add --squash git@github.com:scalesgroup/die.git master -P paper
+    $ git subtree add --squash git@github.com:rs3lab/die.git master -P paper
 
 2. build it:
 
