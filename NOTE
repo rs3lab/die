@@ -1,29 +1,23 @@
 * TODO
 
-- more maintained sty files
-- modern visualization/data processing/plotting than gnuplot (ideally,
-  python lib that supports pdf)
-  
-  - option: d3.js + chrome headless support to svg/pdf
-  - check: python seaborn/bokeh/ggplot/pygal/plotly/geoplotlib/gleam
-    (ref. https://blog.modeanalytics.com/python-data-visualization-libraries/)
-  - no proper/architecture-neutral pdf support
-  - NO matplotlib; its model/code is too ugly
+[ ] - More sty file for various conference styles
+[ ] - Modern visualization/data processing/plotting gnuplot
+      - python lib that supports pdf
+      - d3.js + chrome headless support
+      - (ref. https://blog.modeanalytics.com/python-data-visualization-libraries/)
+      - NOTE: matplotlib is not that pretty
 
-- example in this main repo (as an example and for studying)
-- summarize pointers for latex beginner (e.g., explaining common issues)
-  - e.g., ~ use 
-- summarize dependencies for mac/windows
-- better code highlighting (+ ref support)
-- spell check on svg
-- check draftable for generating diffs (https://draftable.com/)
+[ ] - Add support for highlighting text using various colors
+[ ] - Add support for failures for missing date and other things in bibtex
+[ ] - Add templated support RS3Lab bibtex
 
-- Check
-show-diff-$(REV_FIXED): $(DEPS)
-	latexdiff-vc --flatten --force --type=CULINECHBAR --packages=amsmath,hyperref,siunitx \
-			  -f FLOATSAFE --exclude-safecmd="algorithm" \
-			  --math-markup=off --disable-citation-markup \
-			  --git -r $(REV_FIXED) -r $(HEAD) $(ROOT).tex
-	latexmk  -interaction=nonstopmode -jobname=$(PROPOSAL)-diff-$(REV_FIXED)-$(HEAD) -pdf $(ROOT)-diff$(REV_FIXED)-$(HEAD).tex
-	xdg-open $(PROPOSAL)-diff-$(REV_FIXED)-$(HEAD).pdf
-	latexmk  -c -jobname=$(PROPOSAL)-diff-$(REV_FIXED)-$(HEAD) $(ROOT)-diff$(REV_FIXED)-$(HEAD).tex
+[ ] - Summarize pointers for latex beginner (e.g., explaining common issues)
+[ ] - Summarize dependencies for mac/windows
+[ ] - Better code highlighting (+ ref support)
+[ ] - spell check on svg
+[ ] - Check draftable for generating diffs (https://draftable.com/)
+[ ] - Add overleaf support for automated compilation
+[ ] - Add Grammarly support:
+      - Vim
+      - emacs
+      - Support other IDEs
