@@ -1185,7 +1185,7 @@ class LaTeXFilter:
             #
             # We check for >=80 because a bug in LuaTeX causes it to
             # wrap at 80 columns instead of 79 (LuaTeX #900).
-            while self.__lend - self.__lstart >= 80:
+            while self.__lend - self.__lstart >= 80 and self.__pos < self.__lend:
                 # if self.TRACE: print('<{}> wrapping'.format(self.__pos))
                 if self.TRACE: print('<{:5d}> wrapping'.format(self.__pos))
                 self.__ensure_line()
